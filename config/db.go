@@ -11,7 +11,9 @@ var DB *sql.DB
 
 func ConnectDB() {
 	var err error
-	DB, err = sql.Open("mysql", "root:@tcp(localhost:3306)/dbsipograf?parseTime=true")
+
+	dsn := "mariadb:7F37RDMdizgkWC75q5myFH6QFGFzwFK7JTmkR5mQMK9yYkSxzAShdkDZUf2k0GzP@tcp(87.239.129.130:3306)/default?parseTime=true&tls=skip-verify"
+	DB, err = sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatal(err)
 	}
